@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { PrimeModule } from '../../core/prime.module';
-import { MenuModule } from 'primeng/menu';
 import { MenuItem } from 'primeng/api';
 import { MenubarModule } from 'primeng/menubar';
+import { RouterLink } from "@angular/router";
+
 
 @Component({
     selector: 'app-menu',
     templateUrl: './menu.component.html',
     standalone: true,
-    imports: [PrimeModule, MenubarModule]
+    imports: [MenubarModule, RouterLink, PrimeModule]
 })
 
 export class MenuComponent implements OnInit {
