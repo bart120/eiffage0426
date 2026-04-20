@@ -42,7 +42,8 @@ export class MenuComponent implements OnInit {
             },
             {
                 label: 'A PROPOS',
-                icon: 'pi pi-info'
+                icon: 'pi pi-info',
+                routerLink: '/about'
             }
 
         ];
