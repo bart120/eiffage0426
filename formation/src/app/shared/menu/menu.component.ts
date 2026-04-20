@@ -21,7 +21,8 @@ export class MenuComponent implements OnInit {
         this.items = [
             {
                 label: 'ACCUEIL',
-                icon: 'pi pi-home'
+                icon: 'pi pi-home',
+                routerLink: '/'
             },
             {
                 label: 'TODOS',
@@ -29,11 +30,13 @@ export class MenuComponent implements OnInit {
                 items: [
                     {
                         label: 'Liste',
-                        icon: 'pi pi-list'
+                        icon: 'pi pi-list',
+                        routerLink: '/todos'
                     },
                     {
                         label: 'Ajouter',
-                        icon: 'pi pi-plus'
+                        icon: 'pi pi-plus',
+                        routerLink: '/todos/add'
                     }
                 ]
             },
