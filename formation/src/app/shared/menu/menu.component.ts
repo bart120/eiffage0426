@@ -13,19 +13,35 @@ import { MenubarModule } from 'primeng/menubar';
 
 export class MenuComponent implements OnInit {
 
-    items: MenuItem[] = [
-        {
-            label: 'ACCUEIL',
-            icon: 'pi pi-home'
-        },
-        {
-            label: 'A PROPOS',
-            icon: 'pi pi-info'
-        }
-
-    ];
+    items: MenuItem[] | undefined;
 
     constructor() { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.items = [
+            {
+                label: 'ACCUEIL',
+                icon: 'pi pi-home'
+            },
+            {
+                label: 'TODOS',
+                icon: 'pi pi-list',
+                items: [
+                    {
+                        label: 'Liste',
+                        icon: 'pi pi-list'
+                    },
+                    {
+                        label: 'Ajouter',
+                        icon: 'pi pi-plus'
+                    }
+                ]
+            },
+            {
+                label: 'A PROPOS',
+                icon: 'pi pi-info'
+            }
+
+        ];
+    }
 }
