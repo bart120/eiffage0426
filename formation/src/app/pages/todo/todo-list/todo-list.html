@@ -15,8 +15,8 @@
     <ng-template #body let-todo>
         <tr>
             <td>{{todo.id}}</td>
-            <td>{{todo.title}}</td>
-            <td>{{todo.completed}}</td>
+            <td>{{todo.title | uppercase}}</td>
+            <td>{{todo.completed | done}}</td>
         </tr>
     </ng-template>
 </p-table>

@@ -6,9 +6,13 @@ import { InputTextModule } from 'primeng/inputtext';
 import { MessageModule } from 'primeng/message';
 import { TableModule } from 'primeng/table';
 import { SelectModule } from 'primeng/select';
+import { DonePipe } from './pipes/done.pipe';
 
 @NgModule({
+    declarations: [DonePipe],
     //imports: [ButtonModule, CardModule],
-    exports: [ButtonModule, CardModule, PanelModule, InputTextModule, MessageModule, TableModule, SelectModule],
+    exports: [ButtonModule, CardModule, PanelModule, InputTextModule, MessageModule, TableModule, SelectModule,
+        DonePipe
+    ],
 })
 export class PrimeModule { }
