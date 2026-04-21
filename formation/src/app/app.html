@@ -1,3 +1,9 @@
+@if(isProduction() === false) {
+<p-message severity="warn">
+    Attention: environement de développement
+</p-message>
+}
+
 <app-menu></app-menu>
 
 <router-outlet></router-outlet>
