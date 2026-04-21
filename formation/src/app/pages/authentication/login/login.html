@@ -3,14 +3,15 @@
     <p-card [style]="{ width: '25rem', overflow: 'hidden' }">
         <form class="flex flex-col gap-4 w-full sm:w-56">
             <div class="flex flex-col gap-1">
-                <input pInputText type="text" placeholder="Email" class="input input-bordered w-full" />
+                <input pInputText type="text" placeholder="Email" class="input input-bordered w-full" #inputlogin />
             </div>
 
             <div class="flex flex-col gap-1">
-                <input pInputText type="password" placeholder="Mot de passe" class="input input-bordered w-full" />
+                <input pInputText type="password" placeholder="Mot de passe" class="input input-bordered w-full"
+                    #inputpass />
             </div>
 
-            <button pButton type="button">
+            <button pButton type="button" severity="secondary" class="w-full" (click)="onLogin(inputlogin.value)">
                 <span pButtonLabel>Se connecter</span>
             </button>
 
