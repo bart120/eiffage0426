@@ -4,9 +4,10 @@ import { CardModule } from 'primeng/card';
 import { PanelModule } from 'primeng/panel';
 import { InputTextModule } from 'primeng/inputtext';
 import { MessageModule } from 'primeng/message';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
     //imports: [ButtonModule, CardModule],
-    exports: [ButtonModule, CardModule, PanelModule, InputTextModule, MessageModule],
+    exports: [ButtonModule, CardModule, PanelModule, InputTextModule, MessageModule, TableModule],
 })
 export class PrimeModule { }

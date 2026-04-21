@@ -1,1 +1,38 @@
-<p>todo-list works!</p>
+<h1>A faire!!</h1>
+
+<p-table [value]="todos()">
+    <ng-template #header>
+        <tr>
+            <th>Id</th>
+            <th>Tache</th>
+            <th>Terminée ?</th>
+        </tr>
+    </ng-template>
+    <ng-template #body let-todo>
+        <tr>
+            <td>{{todo.id}}</td>
+            <td>{{todo.title}}</td>
+            <td>{{todo.completed}}</td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<!-- Version sans PrimeNG 
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Tache</th>
+            <th>Terminée ?</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(todo of todos(); track todo.id) {
+        <tr>
+            <td>{{todo.id}}</td>
+            <td>{{todo.title}}</td>
+            <td>{{todo.completed}}</td>
+        </tr>
+        }
+    </tbody>
+</table> -->

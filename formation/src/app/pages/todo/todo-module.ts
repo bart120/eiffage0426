@@ -5,11 +5,13 @@ import { TodoList } from './todo-list/todo-list';
 import { PrimeModule } from '../../core/prime.module';
 import { routes } from './todo-routes';
 import { RouterModule } from '@angular/router';
+import { TodosService } from '../../core/services/todos.service';
 
 
 @NgModule({
   declarations: [TodoAdd, TodoList],
   imports: [CommonModule, PrimeModule, RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [TodosService]
 })
 export class TodoModule { }
