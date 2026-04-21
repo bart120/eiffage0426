@@ -1,1 +1,19 @@
-<p>login works!</p>
+<h1>Connexion</h1>
+<div class="mb-4 p-8 flex items-center justify-center">
+    <p-card [style]="{ width: '25rem', overflow: 'hidden' }">
+        <form class="flex flex-col gap-4 w-full sm:w-56">
+            <div class="flex flex-col gap-1">
+                <input pInputText type="text" placeholder="Email" class="input input-bordered w-full" />
+            </div>
+
+            <div class="flex flex-col gap-1">
+                <input pInputText type="password" placeholder="Mot de passe" class="input input-bordered w-full" />
+            </div>
+
+            <button pButton type="button">
+                <span pButtonLabel>Se connecter</span>
+            </button>
+
+        </form>
+    </p-card>
+</div>
