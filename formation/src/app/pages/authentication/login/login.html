@@ -3,18 +3,50 @@
     <p-card [style]="{ width: '25rem', overflow: 'hidden' }">
         <form class="flex flex-col gap-4 w-full sm:w-56">
             <div class="flex flex-col gap-1">
-                <input pInputText type="text" placeholder="Email" class="input input-bordered w-full" #inputlogin />
+                <input pInputText type="text" placeholder="Email" class="input input-bordered w-full" #inputlogin
+                    (keyup.enter)="inputpass.focus()" />
             </div>
 
             <div class="flex flex-col gap-1">
                 <input pInputText type="password" placeholder="Mot de passe" class="input input-bordered w-full"
-                    #inputpass />
+                    #inputpass (keyup.enter)="onLogin(inputlogin.value)" />
+
+                <!--avant version 17 -->
+                <div *ngIf="inputpass.value.length < 6; else passok">
+                    <p-message severity="error">
+                        Le mot de passe doit contenir au moins 6 caractères.
+                    </p-message>
+                </div>
+                <ng-template #passok>
+                    <p-message severity="success">
+                        Le mot de passe est valide.
+                    </p-message>
+                </ng-template>
+
+                <!--à partir de la version 17 -->
+
+                @if(inputpass.value.length < 6){ <p-message severity="error">
+                    Le mot de passe doit contenir au moins 6 caractères.
+                    </p-message>
+                    }
+                    @else{
+                    <p-message severity="success">
+                        Le mot de passe est valide.
+                    </p-message>
+                    }
             </div>
+
+
 
             <button pButton type="button" severity="secondary" class="w-full" (click)="onLogin(inputlogin.value)">
                 <span pButtonLabel>Se connecter</span>
             </button>
 
         </form>
+        @if(user.login != ''){
+        <p-message severity="success">
+            Vous êtes connecté.
+        </p-message>
+        }
     </p-card>
 </div>
