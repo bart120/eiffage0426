@@ -1,5 +1,9 @@
 <h1>A faire!!</h1>
 
+<div class="card flex justify-center">
+    <p-select [options]="users()" optionLabel="name" class="w-full md:w-56" (onChange)="onChangeUser($event)" />
+</div>
+
 <p-table [value]="todos()">
     <ng-template #header>
         <tr>
