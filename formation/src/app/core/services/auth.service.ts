@@ -17,6 +17,8 @@ export class AuthService {
 
     isConnected: Signal<boolean> = computed(() => this.user().id !== 0);
 
+    private userToken: string = "FDSFDSQFDSQFDSQFDSQFDSGGGSQHJJH";
+
     constructor() {
         const userData = sessionStorage.getItem('user');
         if (userData) {
@@ -27,6 +29,10 @@ export class AuthService {
 
     getUserSignal() {
         return this.user;
+    }
+
+    getToken(): string {
+        return this.userToken;
     }
 
     login(login: string, password: string): Observable<boolean> {
