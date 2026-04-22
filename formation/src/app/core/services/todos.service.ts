@@ -21,4 +21,8 @@ export class TodosService {
         //1
         return this.http.get<Array<TodoModel>>(`${environment.apiTodosUrl}/todos?userId=${userId}`);
     }
+
+    addToto(todo: TodoModel): Observable<TodoModel> {
+        return this.http.post<TodoModel>(`${environment.apiTodosUrl}/todos`, todo);
+    }
 }

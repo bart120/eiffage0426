@@ -6,13 +6,15 @@ import { PrimeModule } from '../../core/prime.module';
 import { routes } from './todo-routes';
 import { RouterModule } from '@angular/router';
 import { TodosService } from '../../core/services/todos.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MessageService } from 'primeng/api';
 
 
 @NgModule({
   declarations: [TodoAdd, TodoList],
-  imports: [CommonModule, PrimeModule, RouterModule.forChild(routes), FormsModule],
+  imports: [CommonModule, PrimeModule, RouterModule.forChild(routes),
+    FormsModule, ReactiveFormsModule],
   exports: [RouterModule],
-  providers: [TodosService]
+  providers: [TodosService, MessageService]
 })
 export class TodoModule { }

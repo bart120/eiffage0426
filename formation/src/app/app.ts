@@ -4,6 +4,7 @@ import { FooterComponent } from "./shared/footer/footer.components";
 import { MenuComponent } from './shared/menu/menu.component';
 import { environment } from '../environments/environment';
 import { PrimeModule } from './core/prime.module';
+import { MessageService } from 'primeng/api';
 
 
 
@@ -11,7 +12,8 @@ import { PrimeModule } from './core/prime.module';
   selector: 'app-root',
   imports: [RouterOutlet, FooterComponent, MenuComponent, PrimeModule],
   templateUrl: './app.html',
-  styleUrls: ['./app.scss']
+  styleUrls: ['./app.scss'],
+  providers: [MessageService]
 })
 export class App implements OnInit {
   protected readonly title = signal('formation');
