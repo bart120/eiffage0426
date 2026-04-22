@@ -4,6 +4,7 @@ import { TodoModel } from '../../../core/models/todo.model';
 import { UserModel } from '../../../core/models/user.model';
 import { UsersService } from '../../../core/services/users.service';
 import { SelectChangeEvent } from 'primeng/select';
+import { Observable, shareReplay } from 'rxjs';
 
 @Component({
   selector: 'app-todo-list',
@@ -15,6 +16,8 @@ export class TodoList implements OnInit {
 
   protected readonly todos = signal<Array<TodoModel>>([]);
   protected readonly users = signal<Array<UserModel>>([]);
+
+  usersMap = new Map<number, Observable<UserModel>>();
 
   constructor(private todosService: TodosService, private usersService: UsersService) {
 
@@ -36,4 +39,12 @@ export class TodoList implements OnInit {
       this.todos.set(data);
     });
   }
+
+  getUserById(userId: number): Observable<UserModel> {
+    if (!this.usersMap.has(userId)) {
+      this.usersMap.set(userId, this.usersService.getUserById(userId).pipe(shareReplay(1)));
+    }
+    return this.usersMap.get(userId)!;
+  }
+
 }
