@@ -1,4 +1,5 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, inject, OnInit, signal, ViewChild } from '@angular/core';
+import { AuthService } from '../../../core/services/auth.service';
 
 
 @Component({
@@ -9,7 +10,11 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 })
 export class Login implements OnInit {
 
-  user = { login: "", password: "" }; // A partir de version 20, utiliser SIGNALS pour les données reactives
+  //user = { login: "", password: "" }; // A partir de version 20, utiliser SIGNALS pour les données reactives
+
+  private readonly authService = inject(AuthService);
+
+  isError = signal(false);
 
   @ViewChild('inputpass')
   password: ElementRef | undefined;
@@ -19,11 +24,17 @@ export class Login implements OnInit {
   }
 
   onLogin(login: string) {
+    this.isError.set(false);
+    //console.log('Login value:', login);
+    //console.log('Password value:', this.password?.nativeElement.value);
 
-    console.log('Login value:', login);
-    console.log('Password value:', this.password?.nativeElement.value);
-
-    this.user = { login: login, password: this.password?.nativeElement.value || "" };
+    this.authService.login(login, this.password?.nativeElement.value || "").subscribe(data => {
+      if (!data) {
+        console.log(data);
+        //this.user = { login: login, password: this.password?.nativeElement.value || "" };
+        this.isError.set(true);
+      }
+    });
 
     /*this.user.login = login;
     this.user.password = this.password?.nativeElement.value;*/

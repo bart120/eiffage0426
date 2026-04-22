@@ -1,9 +1,14 @@
 <div class="card">
     <p-menubar [model]="items">
+
+        @if(authService.isConnected()){
+        Bonjour {{authService.getUserSignal()().name}}
+        <button pButton type="button" icon="pi pi-power-off" (click)="authService.logout()"></button>
+        }@else {
         <ng-template #end>
             <a pButton [routerLink]="'/auth/login'"><i class="pi pi-sign-in"></i>Se connecter</a>
-
         </ng-template>
+        }
     </p-menubar>
 
 </div>

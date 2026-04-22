@@ -43,9 +43,9 @@
             </button>
 
         </form>
-        @if(user.login != ''){
-        <p-message severity="success">
-            Vous êtes connecté.
+        @if(isError()){
+        <p-message severity="error">
+            Login / Mot de passe incorrect.
         </p-message>
         }
     </p-card>

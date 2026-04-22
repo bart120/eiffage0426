@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { PrimeModule } from '../../core/prime.module';
 import { MenuItem } from 'primeng/api';
 import { MenubarModule } from 'primeng/menubar';
 import { RouterLink } from "@angular/router";
+import { AuthService } from '../../core/services/auth.service';
 
 
 @Component({
@@ -15,6 +16,8 @@ import { RouterLink } from "@angular/router";
 export class MenuComponent implements OnInit {
 
     items: MenuItem[] | undefined;
+
+    authService: AuthService = inject(AuthService);
 
     constructor() { }
 
@@ -49,4 +52,6 @@ export class MenuComponent implements OnInit {
 
         ];
     }
+
+
 }
