@@ -1,1 +1,7 @@
 <p>home works!</p>
+
+@for (user of users(); track $index) {
+<div>
+    <a routerLink="/todos/{{user.id}}">Todos pour l'utilisateur {{user.name}}</a>
+</div>
+}

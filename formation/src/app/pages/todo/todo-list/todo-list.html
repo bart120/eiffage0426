@@ -1,7 +1,8 @@
 <h1>A faire!!</h1>
 
 <div class="card flex justify-center">
-    <p-select [options]="users()" optionLabel="name" class="w-full md:w-56" (onChange)="onChangeUser($event)" />
+    <p-select [options]="users()" optionLabel="name" class="w-full md:w-56" (onChange)="onChangeUser($event)"
+        optionValue="id" [(ngModel)]="selectedUserId" />
 </div>
 
 <p-table [value]="todos()">

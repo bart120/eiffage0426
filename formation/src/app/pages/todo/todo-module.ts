@@ -6,11 +6,12 @@ import { PrimeModule } from '../../core/prime.module';
 import { routes } from './todo-routes';
 import { RouterModule } from '@angular/router';
 import { TodosService } from '../../core/services/todos.service';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [TodoAdd, TodoList],
-  imports: [CommonModule, PrimeModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, PrimeModule, RouterModule.forChild(routes), FormsModule],
   exports: [RouterModule],
   providers: [TodosService]
 })
